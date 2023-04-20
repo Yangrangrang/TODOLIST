@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>to do list</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="content">
+
+    <form class="form-card">
+      <h1>todo</h1>
+      <div class="write">
+        <label>구분:</label>
+        <select id="category">
+          <option value="버킷리스트">버킷리스트</option>
+          <option value="공부">공부</option>
+          <option value="운동">운동</option>
+          <option value="업무">업무</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+      <div class="write">
+        <label>할일:</label>
+        <textarea id="todo-text"></textarea>
+      </div>
+      <div class="write">
+        <label>완료 예정일:</label>
+        <input type="text" id="todo-date">
+      </div>
+      <button>등록</button>
+    </form>
+
+    <div class="form-card">
+      <h1>list</h1>
+      <ul class="todo-list">
+        <!-- <li>
+          <input type="radio"></input>
+          <p class="todo-do"></p>
+        </li> -->
+      </ul>
+    </div>
+  </form>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
