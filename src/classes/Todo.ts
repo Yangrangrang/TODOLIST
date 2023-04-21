@@ -6,7 +6,26 @@ export class Todo{
     public title: string,
     public duedate:string, 
     public isDone: boolean,
-  ){}
+  ){
+    enum categoryLists {
+      bucket= "버킷리스트",
+      study = "공부",
+      exe = "운동",
+      works = "업무",
+      etc = "기타",
+    }
+    if (this.category === '0'){
+      this.category = categoryLists.bucket;
+    } else if (this.category === '1') {
+      this.category = categoryLists.study;
+    } else if (this.category === '2') {
+      this.category = categoryLists.exe;
+    } else if (this.category === '3') {
+      this.category = categoryLists.works;
+    } else if (this.category === '4') {
+      this.category = categoryLists.etc;
+    }
+  }
 
   // 날짜 유효성 확인 함수 생성
   day(): boolean {
