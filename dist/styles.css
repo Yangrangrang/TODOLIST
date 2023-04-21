@@ -4,6 +4,9 @@ body {
 h1 {
   margin: 0;
 }
+h4 {
+  font-weight: normal;
+}
 .content {
   /* background-color: grey; */
   width: 800px;
@@ -36,4 +39,10 @@ button {
 ul {
   list-style: none;
   padding: 0;
+}
+ul li .text {
+  /* color: blueviolet; */
+  padding: 0 10px 0px 0 ;
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,5 +1,7 @@
+import { Todo } from "../classes/Todo";
+
 export interface HasFormatter {
-  register(): void;
-  delete(): void;
+  register(todo: Todo): void;
+  delete(index: number): void;
   listAll(): void;
 }

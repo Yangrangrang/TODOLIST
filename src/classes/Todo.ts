@@ -2,22 +2,15 @@ import { HasFormatter } from "../interfaces/HasFormatter";
 
 export class Todo{
   constructor(
-    private category: string,
-    private title: string,
-    private duedate:string, 
-    private isDone: boolean,
+    public category: string,
+    public title: string,
+    public duedate:string, 
+    public isDone: boolean,
   ){}
 
-  // constructor(
-  //   category: string,
-  //   title: string, 
-  //   duedate:string, 
-  //   isDone: boolean, 
-  //   ){
-  //     this.category = category;
-  //     this.title = title;
-  //     this.duedate = duedate;
-  //     this.isDone = isDone;
+  // 날짜 유효성 확인 함수 생성
+  day(): boolean {
+    return true;
+  };
 
-  //   }
 }
