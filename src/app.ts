@@ -16,10 +16,9 @@ let todos : Todo[]= [];
 
 // 등록 이벤트 발생
 card.addEventListener("submit", (e:Event)=>{
-  e.preventDefault();
+  // e.preventDefault();
 
   const todo = new Todo(category.value, title.value, duedate.value, false);
-  // console.log(todo)
   todoList.register(todo);
 
 });
@@ -27,23 +26,15 @@ card.addEventListener("submit", (e:Event)=>{
 // list 확인
 todos = todoList.listAll();
 
-// console.log(todos.length);
-
 // list 데이터가 여부에 따른 렌딩 페이지
 if (todos.length === 0){
   listTemplate.notPage();
 } else {
-  // console.log("test");
   todos.forEach(function(i,index){
-    // console.log(i,index);
-    // console.log(i);
     listTemplate.render(i, index);
   });
-  // console.log(todoList.listAll());
 }
 
 // category enum 사용..........ㅠㅠㅠㅠㅠㅠ
-
-// 데이터 리스트 렌더링
 
 

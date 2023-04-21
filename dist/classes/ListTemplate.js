@@ -1,9 +1,11 @@
+import { TodoList } from "./TodoList.js";
 export class ListTemplate {
     constructor(
     // public todo: Todo[],
     // 생성자 (ul)
     container) {
         this.container = container;
+        this.listmodify = new TodoList();
     }
     // 데이터가 없을때 나오는 렌딩페이지
     notPage() {
@@ -14,8 +16,7 @@ export class ListTemplate {
         li.append(h4);
         this.container.append(li);
     }
-    // 등록 이벤트 되었을 때 List render
-    render(todo, index) {
+    addRowToContainer(todo, index) {
         const li = document.createElement('li');
         const p = document.createElement('p');
         const div = document.createElement('div');
@@ -23,7 +24,7 @@ export class ListTemplate {
         const span = document.createElement('span');
         const span2 = document.createElement('span');
         // 완료 미완료 radio버튼 추가
-        const div2 = document.createElement('div');
+        const form = document.createElement('form');
         const label1 = document.createElement('label');
         const input1 = document.createElement('input');
         input1.type = "radio";
@@ -36,18 +37,53 @@ export class ListTemplate {
         input2.name = "check";
         input2.value = "true";
         label2.append("완료");
+        // 클릭이벤트 완료건은 style 파란색 > 초록색 
+        if (todo.isDone) {
+            div.style.color = "green";
+            input2.checked = true;
+        }
+        else {
+            div.style.color = "blue";
+            input1.checked = true;
+        }
+        // text내용 입력
         p.innerText = todo.category;
         span.innerText = todo.title;
         span2.innerText = "완료 예정일 : " + todo.duedate;
         div.appendChild(span);
         div.appendChild(span2);
-        div2.appendChild(input1);
-        div2.appendChild(label1);
-        div2.appendChild(input2);
-        div2.appendChild(label2);
+        form.appendChild(input1);
+        form.appendChild(label1);
+        form.appendChild(input2);
+        form.appendChild(label2);
+        // 클릭 시 완료 / 미완료 변경 이벤트
+        input1.addEventListener("click", (e) => {
+            div.style.color = "blue";
+            this.listmodify.modifyF(index);
+        });
+        input2.addEventListener("click", (e) => {
+            div.style.color = "green";
+            this.listmodify.modifyT(index);
+        });
+        // 삭제 버튼 추가 , 클릭 시 삭제
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerText = "삭제하기";
+        deleteBtn.addEventListener("click", (e) => {
+            // console.log("test");
+            this.listmodify.delete(index);
+            location.reload();
+        });
         li.append(p);
         li.append(div);
-        li.append(div2);
+        li.append(form);
+        li.append(deleteBtn);
         this.container.append(li);
+    }
+    // bindEvents (todo : Todo, index : number) {
+    // }
+    // 등록 이벤트 되었을 때 List render
+    render(todo, index) {
+        this.addRowToContainer(todo, index);
+        // this.bindEvents(todo,index);
     }
 }

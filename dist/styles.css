@@ -45,4 +45,5 @@ ul li .text {
   padding: 0 10px 0px 0 ;
   display: flex;
   justify-content: space-between;
+  color: blue;
 }
