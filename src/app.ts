@@ -35,6 +35,4 @@ if (todos.length === 0){
   });
 }
 
-// category enum 사용..........ㅠㅠㅠㅠㅠㅠ
-
 
