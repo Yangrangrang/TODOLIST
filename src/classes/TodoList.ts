@@ -78,7 +78,7 @@ export class TodoList implements HasFormatter{
     this.jsonFunc();
   }
 
-  // 리스트 함수 
+  // 전체 리스트 함수 
   listAll(): Todo[] {
     return this.todos;
   } 
