@@ -39,7 +39,7 @@ todos = todoList.listAll();
 if (todos.length === 0){
   listTemplate.notPage();
 } else {
-  
+
   todos.forEach(function(i,index){
     listTemplate.render(i, index);
   });

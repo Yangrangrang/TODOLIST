@@ -5,13 +5,12 @@ export class ListTemplate {
   listmodify = new TodoList();
 
   constructor(
-    // public todo: Todo[],
 
     // 생성자 (ul)
     public container : HTMLUListElement,
   ){}
 
-  // 데이터가 없을때 나오는 렌딩페이지
+  // 데이터가 없을때 나오는 렌딩페이지 함수
   notPage (){
     // console.log("페이지 없음");
     const li = document.createElement('li');
