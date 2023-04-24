@@ -15,12 +15,17 @@ const listTemplate = new ListTemplate(ul);
 let todos = [];
 // 등록 이벤트
 card.addEventListener("submit", (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     if (duedate.value.length !== 8 || Number.isNaN(Number(duedate.value))) {
     }
     else {
-        const todo = new Todo(category.value, title.value, duedate.value, false);
+        // console.log(duedate.value);
+        const test = Date.parse(duedate.value);
+        // console.log(test);
+        const todo = new Todo(category.value, title.value, test, false);
         todoList.register(todo);
+        const date1 = new Date("2023.04.24");
+        console.log(date1);
     }
 });
 // list 확인

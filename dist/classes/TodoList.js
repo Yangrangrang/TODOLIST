@@ -33,13 +33,13 @@ export class TodoList {
     // 등록 함수
     register(todo) {
         // 완료 예정일 8자리 수 확인, 날짜 유효성 확인 지난 날짜확인...
-        if (todo.duedate.length !== 8 || Number.isNaN(Number(todo.duedate)) || !todo.day()) {
-            alert("날짜확인");
-        }
-        else {
-            this.todos.push(todo);
-            this.jsonSetListFunc();
-        }
+        // if (todo.duedate.length !== 8 || Number.isNaN(Number(todo.duedate)) || !todo.day() ){
+        //   alert("날짜확인");
+        // } else {
+        this.todos.push(todo);
+        //   this.jsonSetListFunc();
+        // }
+        this.jsonSetListFunc();
     }
     // 삭제 함수
     delete(index) {
@@ -61,7 +61,6 @@ export class TodoList {
     //   console.log(this.todos[index]);
     //   this.jsonFunc();
     // }
-
     modify(index, todo) {
         if (this.todos[index].isDone) {
             this.todos[index].isDone = false;

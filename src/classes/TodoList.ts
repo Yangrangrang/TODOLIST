@@ -42,13 +42,14 @@ export class TodoList implements HasFormatter{
   register(todo: Todo): void {
 
     // 완료 예정일 8자리 수 확인, 날짜 유효성 확인 지난 날짜확인...
-    if (todo.duedate.length !== 8 || Number.isNaN(Number(todo.duedate)) || !todo.day() ){
-      alert("날짜확인");
-    } else {
+    // if (todo.duedate.length !== 8 || Number.isNaN(Number(todo.duedate)) || !todo.day() ){
+    //   alert("날짜확인");
+    // } else {
       this.todos.push(todo);
 
-      this.jsonSetListFunc();
-    }
+    //   this.jsonSetListFunc();
+    // }
+    this.jsonSetListFunc();
   }
 
   // 삭제 함수
@@ -80,8 +81,10 @@ export class TodoList implements HasFormatter{
   modify(index: number, todo: Todo): void {
     if (this.todos[index].isDone) {
       this.todos[index].isDone = false;
+      this.jsonSetListFunc();
     } else {
       this.todos[index].isDone = true;
+      this.jsonSetListFunc();
     }
     
   }
