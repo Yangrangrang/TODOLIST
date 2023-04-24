@@ -41,7 +41,7 @@ export class TodoList implements HasFormatter{
   // 등록 함수
   register(todo: Todo): void {
 
-    // 완료 예정일 8자리 수 확인, 날짜 유효성 확인
+    // 완료 예정일 8자리 수 확인, 날짜 유효성 확인 지난 날짜확인...
     if (todo.duedate.length !== 8 || Number.isNaN(Number(todo.duedate)) || !todo.day() ){
       alert("날짜확인");
     } else {

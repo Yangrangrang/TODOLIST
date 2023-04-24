@@ -10,6 +10,7 @@ const category = document.querySelector("#category") as HTMLSelectElement;
 const title = document.querySelector("#todo-text") as HTMLTextAreaElement;
 const duedate = document.querySelector("#todo-date") as HTMLInputElement;
 
+
 const todoList = new TodoList();
 const listTemplate = new ListTemplate(ul);
 let todos : Todo[]= [];

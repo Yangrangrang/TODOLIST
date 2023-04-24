@@ -28,6 +28,8 @@ export class Todo{
   }
 
   // 날짜 유효성 확인 함수 생성
+
+  // 날짜에 관한 유효성을 여기서!
   day(): boolean {
     let result = true;
     try {
