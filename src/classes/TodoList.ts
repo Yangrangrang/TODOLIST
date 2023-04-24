@@ -17,7 +17,6 @@ import { ListTemplate } from "./ListTemplate.js";
 //   }
 // ];
 
-// dk dsdksdksdsdasdassd
 export class TodoList implements HasFormatter{
   todos : Todo[] = [];
   
