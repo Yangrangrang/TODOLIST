@@ -33,7 +33,7 @@ export class TodoList implements HasFormatter{
     }
   }
 
-  jsonFunc(){
+  jsonSetListFunc(){
     const newTodoListJson = JSON.stringify(this.todos);
     localStorage.setItem('todoList', newTodoListJson)
   }
@@ -47,35 +47,43 @@ export class TodoList implements HasFormatter{
     } else {
       this.todos.push(todo);
 
-      this.jsonFunc();
+      this.jsonSetListFunc();
     }
   }
 
   // 삭제 함수
   delete(index: number): void {
-    // this.todos.splice(index, 1);
     console.log(index);
     console.log(this.todos);
 
     this.todos.splice(index,1);
     console.log(this.todos);
     
-    this.jsonFunc();
+    this.jsonSetListFunc();
   }
 
-  // 수정 함수F (isDone)
-  modifyF(index: number): void {
-    this.todos[index].isDone = false;
-    // console.log(this.todos[index]);
+  // // 수정 함수F (isDone)
+  // modifyF(index: number): void {
+  //   this.todos[index].isDone = false;
+  //   // console.log(this.todos[index]);
     
-    this.jsonFunc();
-  }
-   // 수정 함수T (isDone)
-   modifyT(index: number): void {
-    this.todos[index].isDone = true;
-    console.log(this.todos[index]);
+  //   this.jsonFunc();
+  // }
+  //  // 수정 함수T (isDone)
+  //  modifyT(index: number): void {
+  //   this.todos[index].isDone = true;
+  //   console.log(this.todos[index]);
     
-    this.jsonFunc();
+  //   this.jsonFunc();
+  // }
+  
+  modify(index: number, todo: Todo): void {
+    if (this.todos[index].isDone) {
+      this.todos[index].isDone = false;
+    } else {
+      this.todos[index].isDone = true;
+    }
+    
   }
 
   // 전체 리스트 함수 

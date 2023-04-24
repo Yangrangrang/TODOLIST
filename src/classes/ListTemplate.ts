@@ -74,12 +74,12 @@ export class ListTemplate {
     // 클릭 시 완료 / 미완료 변경 이벤트
     input1.addEventListener("click", (e:Event)=> {
       div.style.color = "blue";
-      this.listmodify.modifyF(index);
+      this.listmodify.modify(index, todo);
     })
 
     input2.addEventListener("click", (e: Event)=>{
       div.style.color = "green";
-      this.listmodify.modifyT(index);
+      this.listmodify.modify(index, todo);
     })
 
     // 삭제 버튼 추가 , 클릭 시 삭제

@@ -26,43 +26,53 @@ export class TodoList {
             this.todos = nowTodoList;
         }
     }
-    jsonFunc() {
+    jsonSetListFunc() {
         const newTodoListJson = JSON.stringify(this.todos);
         localStorage.setItem('todoList', newTodoListJson);
     }
     // 등록 함수
     register(todo) {
-        // 완료 예정일 8자리 수 확인, 날짜 유효성 확인
+        // 완료 예정일 8자리 수 확인, 날짜 유효성 확인 지난 날짜확인...
         if (todo.duedate.length !== 8 || Number.isNaN(Number(todo.duedate)) || !todo.day()) {
             alert("날짜확인");
         }
         else {
             this.todos.push(todo);
-            this.jsonFunc();
+            this.jsonSetListFunc();
         }
     }
     // 삭제 함수
     delete(index) {
-        // this.todos.splice(index, 1);
         console.log(index);
         console.log(this.todos);
         this.todos.splice(index, 1);
         console.log(this.todos);
-        this.jsonFunc();
+        this.jsonSetListFunc();
     }
-    // 수정 함수F (isDone)
-    modifyF(index) {
-        this.todos[index].isDone = false;
-        // console.log(this.todos[index]);
-        this.jsonFunc();
+    // // 수정 함수F (isDone)
+    // modifyF(index: number): void {
+    //   this.todos[index].isDone = false;
+    //   // console.log(this.todos[index]);
+    //   this.jsonFunc();
+    // }
+    //  // 수정 함수T (isDone)
+    //  modifyT(index: number): void {
+    //   this.todos[index].isDone = true;
+    //   console.log(this.todos[index]);
+    //   this.jsonFunc();
+    // }
+
+    modify(index, todo) {
+        if (this.todos[index].isDone) {
+            this.todos[index].isDone = false;
+            this.jsonSetListFunc();
+        }
+        else {
+            this.todos[index].isDone = true;
+            this.jsonSetListFunc();
+        }
     }
-    // 수정 함수T (isDone)
-    modifyT(index) {
-        this.todos[index].isDone = true;
-        console.log(this.todos[index]);
-        this.jsonFunc();
-    }
-    // 리스트 함수 
+    // 전체 리스트 함수 
     listAll() {
         return this.todos;
     }

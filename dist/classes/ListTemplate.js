@@ -1,13 +1,12 @@
 import { TodoList } from "./TodoList.js";
 export class ListTemplate {
     constructor(
-    // public todo: Todo[],
     // 생성자 (ul)
     container) {
         this.container = container;
         this.listmodify = new TodoList();
     }
-    // 데이터가 없을때 나오는 렌딩페이지
+    // 데이터가 없을때 나오는 렌딩페이지 함수
     notPage() {
         // console.log("페이지 없음");
         const li = document.createElement('li');
@@ -59,11 +58,11 @@ export class ListTemplate {
         // 클릭 시 완료 / 미완료 변경 이벤트
         input1.addEventListener("click", (e) => {
             div.style.color = "blue";
-            this.listmodify.modifyF(index);
+            this.listmodify.modify(index, todo);
         });
         input2.addEventListener("click", (e) => {
             div.style.color = "green";
-            this.listmodify.modifyT(index);
+            this.listmodify.modify(index, todo);
         });
         // 삭제 버튼 추가 , 클릭 시 삭제
         const deleteBtn = document.createElement('button');
