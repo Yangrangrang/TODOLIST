@@ -6,6 +6,7 @@ import { TodoList } from "./classes/TodoList.js";
 // 선택자
 const card = document.querySelector(".form-card") as HTMLFormElement;
 const ul = document.querySelector('ul')!;
+const select = document.querySelector('select')!;
 
 const category = document.querySelector("#category") as HTMLSelectElement;
 const title = document.querySelector("#todo-text") as HTMLTextAreaElement;
@@ -14,7 +15,7 @@ const duedate = document.querySelector("#todo-date") as HTMLInputElement;
 
 // 인스턴스화
 const todoList = new TodoList();
-const listTemplate = new ListTemplate(ul);
+const listTemplate = new ListTemplate(ul, select);
 
 // TODO타입의 배열 선언
 let todos : Todo[]= [];

@@ -8,6 +8,7 @@ export class ListTemplate {
 
     // 생성자 (ul)
     public container : HTMLUListElement,
+    public selectContainer : HTMLSelectElement,
   ){}
 
   // 데이터가 없을때 나오는 렌딩페이지 함수
