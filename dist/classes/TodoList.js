@@ -1,3 +1,4 @@
+import { LocalStore } from "./LocalStore.js";
 // const initTodoList: Todo[] = [
 //   {
 //     title: "출근하기",
@@ -14,65 +15,46 @@
 // ];
 export class TodoList {
     constructor() {
-        this.todos = [];
-        const nowTodoListJson = localStorage.getItem('todoList');
-        if (nowTodoListJson === null) {
-            // const initTodoListJson = JSON.stringify(initTodoList);
-            // localStorage.setItem('todoList',initTodoListJson);
-            // this.todos = initTodoList;
-        }
-        else {
-            const nowTodoList = JSON.parse(nowTodoListJson);
-            this.todos = nowTodoList;
-        }
-    }
-    jsonSetListFunc() {
-        const newTodoListJson = JSON.stringify(this.todos);
-        localStorage.setItem('todoList', newTodoListJson);
+        this.todoList = []; // todo를 담을 배열 생성
+        this.localStore = new LocalStore();
     }
     // 등록 함수
     register(todo) {
-        // 완료 예정일 8자리 수 확인, 날짜 유효성 확인 지난 날짜확인...
-        // if (todo.duedate.length !== 8 || Number.isNaN(Number(todo.duedate)) || !todo.day() ){
-        //   alert("날짜확인");
-        // } else {
-        this.todos.push(todo);
-        //   this.jsonSetListFunc();
-        // }
-        this.jsonSetListFunc();
-    }
-    // 삭제 함수
-    delete(index) {
-        console.log(index);
-        console.log(this.todos);
-        this.todos.splice(index, 1);
-        console.log(this.todos);
-        this.jsonSetListFunc();
-    }
-    // // 수정 함수F (isDone)
-    // modifyF(index: number): void {
-    //   this.todos[index].isDone = false;
-    //   // console.log(this.todos[index]);
-    //   this.jsonFunc();
-    // }
-    //  // 수정 함수T (isDone)
-    //  modifyT(index: number): void {
-    //   this.todos[index].isDone = true;
-    //   console.log(this.todos[index]);
-    //   this.jsonFunc();
-    // }
-    modify(index, todo) {
-        if (this.todos[index].isDone) {
-            this.todos[index].isDone = false;
-            this.jsonSetListFunc();
+        if (todo.addItem(todo)) {
+            this.todoList.push(todo);
+            this.localStore.setJsonItem(this.todoList);
         }
         else {
-            this.todos[index].isDone = true;
-            this.jsonSetListFunc();
+            console.error('등록할 수 없는 아이템 입니다.');
         }
+        ;
     }
+    ;
+    // 삭제 함수
+    delete(index, todo) {
+        this.todoList = this.localStore.getJsonItem();
+        this.todoList.splice(index, 1);
+        this.localStore.setJsonItem(this.todoList);
+    }
+    ;
+    // 수정 함수
+    modify(index, todo) {
+        this.todoList = this.localStore.getJsonItem();
+        if (this.todoList[index].isDone) {
+            this.todoList[index].isDone = false;
+            this.localStore.setJsonItem(this.todoList);
+        }
+        else {
+            this.todoList[index].isDone = true;
+            this.localStore.setJsonItem(this.todoList);
+        }
+        ;
+    }
+    ;
     // 전체 리스트 함수 
     listAll() {
-        return this.todos;
+        this.todoList = this.localStore.getJsonItem();
+        return this.todoList;
     }
+    ;
 }

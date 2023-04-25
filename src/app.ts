@@ -1,5 +1,6 @@
 import { ListTemplate } from "./classes/ListTemplate.js";
 import { Todo } from "./classes/Todo.js";
+import { TodoItem } from "./classes/TodoItem.js";
 import { TodoList } from "./classes/TodoList.js";
 
 // 선택자
@@ -18,31 +19,13 @@ const listTemplate = new ListTemplate(ul);
 // TODO타입의 배열 선언
 let todos : Todo[]= [];
 
-
 // 등록 이벤트
 card.addEventListener("submit", (e:Event)=>{
   e.preventDefault();
-  if (duedate.value.length !== 8 || Number.isNaN(Number(duedate.value)) ){
-    
-  } else {
-    // console.log(duedate.value);
-    const test = Date.parse(duedate.value);
-    // console.log(test);
-    const todo = new Todo(category.value, title.value, test, false);
-    todoList.register(todo);
-
-    const date1 : Date = new Date("2023.04.24");
-    
-    console.log(date1);
-  }
-
   
-
+  const todo = new Todo(category.value, title.value, parseInt(duedate.value), false);
+  todoList.register(todo);
 });
-
-
-
-
 
 // list 확인
 todos = todoList.listAll();
@@ -51,10 +34,11 @@ todos = todoList.listAll();
 if (todos.length === 0){
   listTemplate.notPage();
 } else {
-
   todos.forEach(function(i,index){
-    listTemplate.render(i, index);
+  listTemplate.render(i, index);
   });
 }
+
+
 
 

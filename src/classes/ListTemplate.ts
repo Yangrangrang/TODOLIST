@@ -61,7 +61,7 @@ export class ListTemplate {
     // text내용 입력
     p.innerText = todo.category;
     span.innerText = todo.title;
-    span2.innerText = "완료 예정일 : " + todo.duedate;
+    span2.innerText = "완료 예정일 : " + todo.dueDate;
     
     div.appendChild(span);
     div.appendChild(span2);
@@ -88,8 +88,8 @@ export class ListTemplate {
 
     deleteBtn.addEventListener("click", (e:Event)=> {
       // console.log("test");
-      this.listmodify.delete(index);
-      location.reload();
+      this.listmodify.delete(index, todo);
+      // location.reload();
     })
 
     li.append(p);
