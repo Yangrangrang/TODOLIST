@@ -15,7 +15,7 @@ const listTemplate = new ListTemplate(ul);
 let todos = [];
 // 등록 이벤트
 card.addEventListener("submit", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const todo = new Todo(category.value, title.value, parseInt(duedate.value), false);
     todoList.register(todo);
 });

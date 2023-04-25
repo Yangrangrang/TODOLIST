@@ -21,7 +21,7 @@ let todos : Todo[]= [];
 
 // 등록 이벤트
 card.addEventListener("submit", (e:Event)=>{
-  e.preventDefault();
+  // e.preventDefault();
   
   const todo = new Todo(category.value, title.value, parseInt(duedate.value), false);
   todoList.register(todo);

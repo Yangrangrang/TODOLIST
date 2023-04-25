@@ -10,9 +10,9 @@ export class Todo implements TodoItem{
     public isDone: boolean,
   ){}
 
-  // 날짜 유효성 확인 함수 생성
+  // category 검증 함수
 
-  // 날짜에 관한 유효성을 여기서!
+  // dueDate 검증 함수
   validate(todo : Todo): boolean {
     const duedate = String(this.dueDate);
 

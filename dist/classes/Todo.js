@@ -7,8 +7,8 @@ export class Todo {
         this.dueDate = dueDate;
         this.isDone = isDone;
     }
-    // 날짜 유효성 확인 함수 생성
-    // 날짜에 관한 유효성을 여기서!
+    // category 검증 함수
+    // dueDate 검증 함수
     validate(todo) {
         const duedate = String(this.dueDate);
         if (duedate.length !== 8) {
