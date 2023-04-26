@@ -1,4 +1,4 @@
-import { Todo } from "../classes/Todo";
+import { Todo } from "../classes/todo/Todo";
 
 export interface HasFormatter {
   register(obj: Object): void;

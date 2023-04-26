@@ -7,6 +7,14 @@ h1 {
 h4 {
   font-weight: normal;
 }
+a {
+  text-decoration: none;
+  color: blueviolet;
+}
+.to_category {
+  width: 800px;
+  margin: 30px auto 0;
+}
 .content .form-card {
   width: 500px;
   margin: 0 auto;
@@ -36,4 +44,32 @@ h4 {
   border: 1px solid #999;
   border-radius: 5px;
 }
-
+.todo-list {
+  margin: 0;
+  padding: 0;
+}
+.todo-list li{
+  /* display: flex; */
+  list-style: none;
+}
+.todo-list li span {
+  /* font-size: 20px; */
+  font-weight: 700;
+}
+.deletBtn {
+  width: 30px;
+  margin-bottom: 20px;
+}
+.text {
+  margin-bottom: 10px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li .text {
+  padding: 0 10px 0px 0 ;
+  display: flex;
+  justify-content: space-between;
+  color: blue;
+}

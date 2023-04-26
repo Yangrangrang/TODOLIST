@@ -1,5 +1,5 @@
-import { Category } from "./Category";
-import { Todo } from "./Todo.js";
+import { Category } from "./category/Category.js";
+import { Todo } from "./todo/Todo.js";
 
 export class LocalStore {
   

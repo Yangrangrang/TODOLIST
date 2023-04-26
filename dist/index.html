@@ -5,22 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>to do list</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
+  <div class="to_category">
+    <a href="./category.html">category</a>
+    <a href="./todoList.html">todoList</a>
+  </div>
   <div class="content">
 
     <form class="form-card">
       <h1>todo</h1>
       <div class="write">
         <label>구분:</label>
-        <select id="category">
-          <!-- <option value="bucket">버킷리스트</option>
-          <option value="study">공부</option>
-          <option value="exe">운동</option>
-          <option value="works">업무</option>
-          <option value="etc">기타</option> -->
-        </select>
+        <select id="category"></select>
       </div>
       <div class="write">
         <label>할일:</label>
@@ -33,12 +31,10 @@
       <button>등록</button>
     </form>
 
-    <div class="form-card">
+    <!-- <div class="form-card">
       <h1>list</h1>
-      <ul class="todo-list">
-        <!-- li 태그 -->
-      </ul>
-    </div>
+      <ul class="todo-list"></ul>
+    </div> -->
   </form>
   <script type="module" src="app.js"></script>
 </body>

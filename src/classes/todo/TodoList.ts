@@ -1,6 +1,6 @@
-import { Todo } from "./Todo";
-import { HasFormatter } from "../interfaces/HasFormatter";
-import { LocalStore } from "./LocalStore.js";
+import { Todo } from "./Todo.js";
+import { HasFormatter } from "../../interfaces/HasFormatter.js";
+import { LocalStore } from "../LocalStore.js";
 
 export class TodoList implements HasFormatter{
   todoList : Todo[] = [];  // todo를 담을 배열 생성
@@ -9,6 +9,7 @@ export class TodoList implements HasFormatter{
 
   // 등록 함수
   register(todo: Todo): void {
+    this.todoList = this.localStore.getJsonTodoItem();
 
     if (todo.addItem(todo)) {
       this.todoList.push(todo);

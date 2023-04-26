@@ -1,4 +1,4 @@
-import { TodoList } from "./TodoList.js";
+import { TodoList } from "../../classes/todo/TodoList.js";
 export class ListTemplate {
     constructor(
     // 생성자 (ul)
@@ -70,7 +70,7 @@ export class ListTemplate {
         deleteBtn.addEventListener("click", (e) => {
             // console.log("test");
             this.listmodify.delete(index, todo);
-            // location.reload();
+            location.reload();
         });
         li.append(p);
         li.append(div);

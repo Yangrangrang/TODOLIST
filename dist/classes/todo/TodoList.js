@@ -1,4 +1,4 @@
-import { LocalStore } from "./LocalStore.js";
+import { LocalStore } from "../LocalStore.js";
 export class TodoList {
     constructor() {
         this.todoList = []; // todo를 담을 배열 생성
@@ -6,6 +6,7 @@ export class TodoList {
     }
     // 등록 함수
     register(todo) {
+        this.todoList = this.localStore.getJsonTodoItem();
         if (todo.addItem(todo)) {
             this.todoList.push(todo);
             this.localStore.setJsonTodoItem(this.todoList);

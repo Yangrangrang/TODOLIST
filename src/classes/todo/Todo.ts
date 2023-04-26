@@ -1,9 +1,9 @@
-import { HasFormatter } from "../interfaces/HasFormatter";
-import { TodoItem } from "./TodoItem";
+import { HasFormatter } from "../../interfaces/HasFormatter";
+import { TodoItem } from "./TodoItem.js";
 
 export class Todo implements TodoItem{
   constructor(
-    // public id : number,
+    public id : number,
     public category: string,
     public title: string,
     public dueDate:number, 
@@ -31,7 +31,7 @@ export class Todo implements TodoItem{
         return false
       }
       
-      let result = true;
+    let result = true;
       try {
         const date :string[] = [];
         

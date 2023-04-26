@@ -1,5 +1,5 @@
-import { TodoList } from "./TodoList.js";
-import { Todo } from "./Todo.js";
+import { TodoList } from "../../classes/todo/TodoList.js";
+import { Todo } from "../todo/Todo.js";
 
 export class ListTemplate {
   listmodify = new TodoList();
@@ -8,7 +8,7 @@ export class ListTemplate {
 
     // 생성자 (ul)
     public container : HTMLUListElement,
-    public selectContainer : HTMLSelectElement,
+    
   ){}
 
   // 데이터가 없을때 나오는 렌딩페이지 함수
@@ -90,7 +90,7 @@ export class ListTemplate {
     deleteBtn.addEventListener("click", (e:Event)=> {
       // console.log("test");
       this.listmodify.delete(index, todo);
-      // location.reload();
+      location.reload();
     })
 
     li.append(p);
@@ -105,6 +105,7 @@ export class ListTemplate {
     
   // }
   
+  
  
 
   // 등록 이벤트 되었을 때 List render
@@ -114,4 +115,5 @@ export class ListTemplate {
     // this.bindEvents(todo,index);
     
   }
+
 }
