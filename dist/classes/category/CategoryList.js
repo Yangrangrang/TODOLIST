@@ -1,4 +1,4 @@
-import { deleteFunc } from "./Category.js";
+import { deleteFunc, checkValid } from "./Category.js";
 import { LocalStore } from "../LocalStore.js";
 export class CategoryList {
     constructor() {
@@ -7,8 +7,8 @@ export class CategoryList {
         this.todoList = this.localStore.getJsonTodoItem();
     }
     register(category) {
-        console.log(category.addItem(category, this.categoryList));
-        if (category.addItem(category, this.categoryList)) {
+        let checkCategory = new checkValid();
+        if (checkCategory.addItem(category, this.categoryList)) {
             this.categoryList.push(category);
             this.localStore.setJsonCategoryItem(this.categoryList);
         }

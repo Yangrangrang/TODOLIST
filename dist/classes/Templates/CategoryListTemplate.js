@@ -14,7 +14,7 @@ export class CategoryListTemplate {
         deleteBtn.className = "deletBtn";
         deleteBtn.addEventListener("click", (e) => {
             this.categoryList.delete(index, category);
-            // location.reload();
+            location.reload();
         });
         li.append(span);
         li.append(deleteBtn);

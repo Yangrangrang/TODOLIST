@@ -1,5 +1,5 @@
 import { HasFormatter } from "../../interfaces/HasFormatter.js";
-import { Category, deleteFunc } from "./Category.js";
+import { Category, deleteFunc, checkValid } from "./Category.js";
 import { LocalStore } from "../LocalStore.js";
 import { Todo } from "../todo/Todo.js";
 
@@ -10,8 +10,8 @@ export class CategoryList implements HasFormatter{
   todoList : Todo[] = this.localStore.getJsonTodoItem();
 
   register(category: Category): void {
-    console.log(category.addItem(category, this.categoryList));
-    if (category.addItem(category ,this.categoryList)){
+    let checkCategory = new checkValid();
+    if (checkCategory.addItem(category ,this.categoryList)){
       this.categoryList.push(category);
       this.localStore.setJsonCategoryItem(this.categoryList);
     } else {

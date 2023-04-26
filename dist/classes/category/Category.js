@@ -4,12 +4,14 @@ export class Category {
         this.id = id;
         this.categoryName = categoryName;
     }
+}
+export class checkValid {
     // 카테고리 길이 제한, 공백 제외
     checkValue(category) {
-        if (this.categoryName.length > 10) {
+        if (category.categoryName.length > 10) {
             return false;
         }
-        if (this.categoryName.length === 0) {
+        if (category.categoryName.length === 0) {
             return false;
         }
         let result = true;

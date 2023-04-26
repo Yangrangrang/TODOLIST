@@ -21,7 +21,7 @@ export class CategoryListTemplate {
 
     deleteBtn.addEventListener("click", (e:Event)=> {
       this.categoryList.delete(index, category);
-      // location.reload();
+      location.reload();
     })
 
     li.append(span);

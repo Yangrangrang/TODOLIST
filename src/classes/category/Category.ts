@@ -7,14 +7,16 @@ export class Category{
     public id : number,
     public categoryName : string,
   ){}
+}
 
+export class checkValid {
   // 카테고리 길이 제한, 공백 제외
   checkValue(category : Category): boolean{
-    
-    if (this.categoryName.length > 10) {
+      
+    if (category.categoryName.length > 10) {
       return false;
     }
-    if (this.categoryName.length === 0){
+    if (category.categoryName.length === 0){
       return false;
     }
 
@@ -41,7 +43,6 @@ export class Category{
     }
     return false;
   }
-
 }
 
 export class deleteFunc {
