@@ -11,6 +11,7 @@ export class CategoryList implements HasFormatter{
 
   register(category: Category): void {
     let checkCategory = new checkValid();
+
     if (checkCategory.addItem(category ,this.categoryList)){
       this.categoryList.push(category);
       this.localStore.setJsonCategoryItem(this.categoryList);

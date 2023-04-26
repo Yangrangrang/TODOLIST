@@ -1,4 +1,4 @@
-import { categoryItem } from "./CategoryItem.js";
+// import { categoryItem } from "./CategoryItem.js";
 import { Todo } from "../todo/Todo.js";
 // import { v4 as uuidv4 } from 'uuid';
 
@@ -8,6 +8,10 @@ export class Category{
     public categoryName : string,
   ){}
 }
+
+// export class Validator {
+//   category()
+// }
 
 export class checkValid {
   // 카테고리 길이 제한, 공백 제외

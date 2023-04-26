@@ -5,6 +5,9 @@ export class Category {
         this.categoryName = categoryName;
     }
 }
+// export class Validator {
+//   category()
+// }
 export class checkValid {
     // 카테고리 길이 제한, 공백 제외
     checkValue(category) {
