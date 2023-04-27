@@ -13,7 +13,7 @@ export class Category{
 //   category()
 // }
 
-export class checkValid {
+export class CheckValid {
   // 카테고리 길이 제한, 공백 제외
   checkValue(category : Category): boolean{
       
@@ -49,7 +49,7 @@ export class checkValid {
   }
 }
 
-export class deleteFunc {
+export class DeleteFunc {
   checkDeleteList(category : Category, todoList : Todo[]): boolean{
     for (const todo of todoList){
       if (category.categoryName === todo.title){

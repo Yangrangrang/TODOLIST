@@ -8,7 +8,7 @@ export class Category {
 // export class Validator {
 //   category()
 // }
-export class checkValid {
+export class CheckValid {
     // 카테고리 길이 제한, 공백 제외
     checkValue(category) {
         if (category.categoryName.length > 10) {
@@ -39,7 +39,7 @@ export class checkValid {
         return false;
     }
 }
-export class deleteFunc {
+export class DeleteFunc {
     checkDeleteList(category, todoList) {
         for (const todo of todoList) {
             if (category.categoryName === todo.title) {
