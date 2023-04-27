@@ -13,3 +13,10 @@ export class LocalStore {
         localStorage.setItem(name, newTodoListJson);
     }
 }
+const a = {
+    name: "123",
+    code: "12",
+    test: 123,
+};
+console.log(a);
+const test = a;
