@@ -2,35 +2,18 @@ import { Category } from "./category/Category.js";
 import { Todo } from "./todo/Todo.js";
 
 export class LocalStore {
-  
-  getJsonTodoItem() : Todo[]{
-    const nowTodoListJson = localStorage.getItem('todoList');
+
+  static getJsonItem(name: string ) : any {
+    const nowTodoListJson = localStorage.getItem(name);
     if (nowTodoListJson === null ){
-      const newCategoryList : Todo[] = [];
-      this.setJsonTodoItem(newCategoryList);
+      const newCategoryList : Object[] = [];
+      this.saveJsonItem(newCategoryList, name);
       return newCategoryList;
     }
     return JSON.parse(nowTodoListJson);
   }
-
-  setJsonTodoItem(todoList: Todo[] ){
-    const newTodoListJson = JSON.stringify(todoList);
-    localStorage.setItem('todoList', newTodoListJson);
+  static saveJsonItem(List: Object, name: string,){
+    const newTodoListJson = JSON.stringify(List);
+    localStorage.setItem(name, newTodoListJson);
   }
-
-  getJsonCategoryItem() : Category[]{
-    const nowCategoryListJson = localStorage.getItem('categoryList');
-    if (nowCategoryListJson === null){
-      const newCategoryList :Category[] = [];
-      this.setJsonCategoryItem(newCategoryList);
-      return newCategoryList;
-    }
-    return JSON.parse(nowCategoryListJson);
-  }
-
-  setJsonCategoryItem(categoryList: Category[]) {
-    const newCategoryListJson = JSON.stringify(categoryList);
-    localStorage.setItem('categoryList', newCategoryListJson);
-  }
-
 }

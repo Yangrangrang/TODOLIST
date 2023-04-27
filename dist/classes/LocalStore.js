@@ -1,28 +1,15 @@
 export class LocalStore {
-    getJsonTodoItem() {
-        const nowTodoListJson = localStorage.getItem('todoList');
+    static getJsonItem(name) {
+        const nowTodoListJson = localStorage.getItem(name);
         if (nowTodoListJson === null) {
             const newCategoryList = [];
-            this.setJsonTodoItem(newCategoryList);
+            this.saveJsonItem(newCategoryList, name);
             return newCategoryList;
         }
         return JSON.parse(nowTodoListJson);
     }
-    setJsonTodoItem(todoList) {
-        const newTodoListJson = JSON.stringify(todoList);
-        localStorage.setItem('todoList', newTodoListJson);
-    }
-    getJsonCategoryItem() {
-        const nowCategoryListJson = localStorage.getItem('categoryList');
-        if (nowCategoryListJson === null) {
-            const newCategoryList = [];
-            this.setJsonCategoryItem(newCategoryList);
-            return newCategoryList;
-        }
-        return JSON.parse(nowCategoryListJson);
-    }
-    setJsonCategoryItem(categoryList) {
-        const newCategoryListJson = JSON.stringify(categoryList);
-        localStorage.setItem('categoryList', newCategoryListJson);
+    static saveJsonItem(List, name) {
+        const newTodoListJson = JSON.stringify(List);
+        localStorage.setItem(name, newTodoListJson);
     }
 }

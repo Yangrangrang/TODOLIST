@@ -2,17 +2,18 @@ import { deleteFunc, checkValid } from "./Category.js";
 import { LocalStore } from "../LocalStore.js";
 export class CategoryList {
     constructor() {
-        this.localStore = new LocalStore();
-        this.categoryList = this.localStore.getJsonCategoryItem();
-        this.todoList = this.localStore.getJsonTodoItem();
+        this.listName = "categoryList";
+        this.categoryList = LocalStore.getJsonItem(this.listName);
+        this.todoList = LocalStore.getJsonItem("todoList");
     }
     register(category) {
         let checkCategory = new checkValid();
         if (checkCategory.addItem(category, this.categoryList)) {
             this.categoryList.push(category);
-            this.localStore.setJsonCategoryItem(this.categoryList);
+            LocalStore.saveJsonItem(this.categoryList, this.listName);
         }
         else {
+            alert('등록할 수 없는 아이템 입니다.');
             console.error('등록할 수 없는 아이템 입니다.');
         }
         ;
@@ -22,11 +23,12 @@ export class CategoryList {
     }
     delete(index, category) {
         let func = new deleteFunc();
+        console.log(this.todoList);
         if (func.checkDeleteList(category, this.todoList)) {
-            this.categoryList = this.localStore.getJsonCategoryItem();
+            this.categoryList = LocalStore.getJsonItem(this.listName);
             this.categoryList.splice(index, 1);
             console.log(this.categoryList);
-            this.localStore.setJsonCategoryItem(this.categoryList);
+            LocalStore.saveJsonItem(this.categoryList, this.listName);
         }
         else {
             alert('삭제할 수 없는 아이템 입니다.');
@@ -36,7 +38,7 @@ export class CategoryList {
     }
     ;
     listAll() {
-        this.categoryList = this.localStore.getJsonCategoryItem();
+        this.categoryList = LocalStore.getJsonItem(this.listName);
         return this.categoryList;
     }
     ;
